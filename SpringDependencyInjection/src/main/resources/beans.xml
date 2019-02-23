@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="wiseMotto" class="pl.sdacademy.springDI.beans.WorkerMotto" scope="singleton">
+        <constructor-arg value="Ciężką pracą ludzie się bogacą"/>
+    </bean>
+
+    <bean id="hammer" class="pl.sdacademy.springDI.beans.Tool" scope="prototype">
+        <constructor-arg name="weight" value="6"></constructor-arg>
+        <constructor-arg name="name" value="Młotunio"></constructor-arg>
+    </bean>
+
+    <bean id="worker" class="pl.sdacademy.springDI.beans.Worker" init-method="addDefaultTool">
+        <property name="name" value="Zenon"></property>
+        <property name="age" value="40"></property>
+        <property name="tools">
+            <list>
+                <bean class="pl.sdacademy.springDI.beans.Tool" id="saw">
+                    <property name="name" value="Piłka"></property>
+                    <property name="weight" value="2"></property>
+                </bean>
+                <bean class="pl.sdacademy.springDI.beans.Tool" id="screwdriver">
+                    <property name="name" value="screwdriver"></property>
+                    <property name="weight" value="6"></property>
+                </bean>
+            </list>
+        </property>
+        <property name="workerMotto" ref="wiseMotto"></property>
+    </bean>
+
+    <bean class="pl.sdacademy.springDI.beans.MyBeanPostProcessor"></bean>
+</beans>

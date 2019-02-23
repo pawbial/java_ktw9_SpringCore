@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="helloSpring" class="HelloSpring">
+        <property name="welcomeMessage" value="DUPA Hello"/>
+    </bean>
+    <bean id="helloSingleton" class="SingletonGreeter" scope="singleton">
+        <property name="welcomeMessage" value="Singleton 123"/>
+    </bean>
+    <bean id="helloPrototype" class="PrototypeGreeter" scope="prototype">
+        <property name="welcomeMessage" value="Prototajp 123"/>
+    </bean>
+</beans>
